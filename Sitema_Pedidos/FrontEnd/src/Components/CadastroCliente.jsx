@@ -3,13 +3,13 @@ import "../../styles/CadastroCliente.css";
 
 const CadastroCliente = () => {
   const [formData, setFormData] = useState({
-    name: "",
-    password: "",
+    nome: "",
+    senha: "",
     cpf: "",
-    address: "",
+    endereco: "",
     cep: "",
     email: "",
-    phone: "",
+    telefone: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -30,50 +30,48 @@ const CadastroCliente = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      alert("Cadastro enviado com sucesso!");
-      setFormData({
-        name: "",
-        password: "",
-        cpf: "",
-        address: "",
-        cep: "",
-        email: "",
-        phone: "",
-      });
-      setErrors({});
-    }
-  };
-
   const enviarCadastro = async (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "http://localhost:3000/api/cadastroClienteRoute",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            nome: formData.nome,
-            senha: formData.senha,
-            cpf: formData.cpf,
-            endereco: formData.endereco,
-            cep: formData.cep,
-            email: formData.email,
-            telefone: formData.telefone,
-          }),
+    if (validateForm()) {
+      try {
+        const response = await fetch(
+          "http://localhost:3000/api/cadastroClienteRoute",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              nome: formData.nome,
+              senha: formData.senha,
+              cpf: formData.cpf,
+              endereco: formData.endereco,
+              cep: formData.cep,
+              email: formData.email,
+              telefone: formData.telefone,
+            }),
+          }
+        );
+        const servidor = await response.json();
+        if (response.ok) {
+          console.log(servidor.message);
+          alert("Cadastro realizado com sucesso!");
+          setFormData({
+            nome: "",
+            senha: "",
+            cpf: "",
+            endereco: "",
+            cep: "",
+            email: "",
+            telefone: "",
+          });
+          setErrors({});
+        } else {
+          console.log("Erro ao cadastrar cliente");
         }
-      );
-      const servidor = await response.json();
-      if (response.ok) {
-        console.log(servidor.message);
-      } else {
-        console.log("erro ao cadastrar cliente");
+      } catch (error) {
+        console.error("Erro ao conectar no servidor:", error);
       }
-    } catch (error) {
-      console.error("Erro ao conectar no servidor:", error);
+    } else {
+      alert("Por favor, preencha todos os campos.");
     }
   };
 

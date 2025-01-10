@@ -3,10 +3,10 @@ class Cliente {
         this.id = id;
         this.nome = nome;
         this.senha = senha;
-        this.email = email;
+        this.cpf = cpf;
         this.endereco = endereco;
         this.cep = cep;
-        this.cpf = cpf;
+        this.email = email;
         this.telefone = telefone;
     }
     toJson() {
@@ -14,10 +14,10 @@ class Cliente {
             id: this.id,
             nome: this.nome,
             senha: this.senha,
-            email: this.email,
+            cpf: this.cpf,
             endereco: this.endereco,
             cep: this.cep,
-            cpf: this.cpf,
+            email: this.email,
             telefone: this.telefone
         }
     }
