@@ -1,16 +1,15 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const Cliente = require('./models/Cliente')
+const CadastroClienteRoute = require('./routes/CadastroClienteRoute')
+const cors = require('cors');
 
-const clienteTeste1 = new Cliente (1, 'Joao', 'joao@gmail.com', '123.123.123-50')
-const clienteTeste2 = new Cliente (2, 'Pedro', 'pedro@gmail.com', '123.123.123-50')
 
-const clientes = [clienteTeste1, clienteTeste2]
+app.use(cors());
+app.use(express.json());
 
-app.get('/' , (req, res) => {
-    res.send(clientes);
-});
+app.use('/api', CadastroClienteRoute);
+
 
 
 app.listen(PORT, () => {

@@ -47,18 +47,48 @@ const CadastroCliente = () => {
     }
   };
 
+  const enviarCadastro = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "http://localhost:3000/api/cadastroClienteRoute",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nome: formData.nome,
+            senha: formData.senha,
+            cpf: formData.cpf,
+            endereco: formData.endereco,
+            cep: formData.cep,
+            email: formData.email,
+            telefone: formData.telefone,
+          }),
+        }
+      );
+      const servidor = await response.json();
+      if (response.ok) {
+        console.log(servidor.message);
+      } else {
+        console.log("erro ao cadastrar cliente");
+      }
+    } catch (error) {
+      console.error("Erro ao conectar no servidor:", error);
+    }
+  };
+
   return (
     <div className="form-container">
       <h1>Cadastro de Cliente</h1>
-      <form onSubmit={handleSubmit} className="client-form">
+      <form onSubmit={enviarCadastro} className="client-form">
         {[
-          { label: "Nome", name: "name", type: "text" },
-          { label: "Senha", name: "password", type: "password" },
+          { label: "Nome", name: "nome", type: "text" },
+          { label: "Senha", name: "senha", type: "password" },
           { label: "CPF", name: "cpf", type: "text" },
-          { label: "Endereço", name: "address", type: "text" },
+          { label: "Endereço", name: "endereco", type: "text" },
           { label: "CEP", name: "cep", type: "text" },
           { label: "E-mail", name: "email", type: "email" },
-          { label: "Telefone", name: "phone", type: "text" },
+          { label: "Telefone", name: "telefone", type: "text" },
         ].map((field) => (
           <div key={field.name} className="form-group">
             <label htmlFor={field.name}>{field.label}</label>
