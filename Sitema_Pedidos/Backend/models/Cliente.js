@@ -1,6 +1,5 @@
 class Cliente {
-    constructor(id, nome, senha, email, endereco, cep, cpf, telefone) {
-        this.id = id;
+    constructor(nome, senha, cpf, endereco, cep, email, telefone) {
         this.nome = nome;
         this.senha = senha;
         this.cpf = cpf;
@@ -11,7 +10,6 @@ class Cliente {
     }
     toJson() {
         return {
-            id: this.id,
             nome: this.nome,
             senha: this.senha,
             cpf: this.cpf,
