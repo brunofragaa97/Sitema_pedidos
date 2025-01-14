@@ -1,14 +1,14 @@
-const CadastroClienteService = require('../services/CadastroClienteService');
+const ClienteService = require('../services/ClienteService');
 
 
-class CadastroClienteController {
+class ClienteController {
     // Método para cadastrar o cliente
     static async cadastrarCliente(req, res) {
       const { nome, senha, cpf, endereco, cep, email, telefone } = req.body;
   
       try {
         // Chama o serviço que contém a lógica de cadastro
-        const clienteCadastrado = await CadastroClienteService.cadastrarCliente({
+        const clienteCadastrado = await ClienteService.cadastrarCliente({
           nome,
           senha,
           cpf,
@@ -31,4 +31,4 @@ class CadastroClienteController {
       }
     }
   }
-  module.exports = CadastroClienteController;  
+  module.exports = ClienteController;  

@@ -8,6 +8,8 @@ class Cliente {
         this.email = email;
         this.telefone = telefone;
     }
+
+    
     toJson() {
         return {
             nome: this.nome,
