@@ -1,3 +1,4 @@
+const Cliente = require('../models/Cliente');
 const ClienteService = require('../services/ClienteService');
 
 
@@ -17,11 +18,12 @@ class ClienteController {
           email,
           telefone,
         });
-        
+      
         res.status(201).json({
           message: 'Cliente cadastrado com sucesso!',
-          cliente: clienteCadastrado,
+          cliente: clienteCadastrado.nome,
         });
+        console.log("Novo cliente cadastrado: " , clienteCadastrado)
       } catch (error) {
         console.error("Erro no servidor:", error); // Adiciona log do erro no console
         res.status(500).json({

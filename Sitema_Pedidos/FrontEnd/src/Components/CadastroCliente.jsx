@@ -52,7 +52,7 @@ const CadastroCliente = () => {
         );
         const servidor = await response.json();
         if (response.ok) {
-          console.log(servidor.message);
+          console.log(servidor.message , "Cliente cadastrado: ", servidor.cliente);
           alert("Cadastro realizado com sucesso!");
           setFormData({
             nome: "",
