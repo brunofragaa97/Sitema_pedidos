@@ -1,0 +1,80 @@
+/* Background do container pai */
+.background-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1f1f2e, #121212);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Container do menu */
+  .menu-container {
+    width: 400px;
+    height: 500px;
+    background: #2b2b3d;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    padding: 20px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Título do menu */
+  .menu-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00d1ff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Lista de itens do menu */
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  .menu-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #1f1f2e;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .menu-item:hover {
+    transform: scale(1.05);
+    background: #34344a;
+  }
+  
+  .menu-item strong {
+    display: block;
+    color: #00d1ff;
+    margin-bottom: 5px;
+  }
+  
+  /* Botão de pedido */
+  .order-button {
+    background: #00d1ff;
+    color: #121212;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background 0.3s ease;
+  }
+  
+  .order-button:hover {
+    background: #007d99;
+  }
+  
