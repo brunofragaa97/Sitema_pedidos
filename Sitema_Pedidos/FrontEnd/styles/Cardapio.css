@@ -13,6 +13,7 @@
   .menu-container {
     width: 400px;
     height: 500px;
+    padding: 10px;
     background: #2b2b3d;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
@@ -60,6 +61,35 @@
     margin-bottom: 5px;
   }
   
+  /* Controles de quantidade */
+  .menu-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .quantity-button {
+    background: #00d1ff;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .quantity-button:hover {
+    background: #007d99;
+  }
+  
+  .quantity-display {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
   /* Botão de pedido */
   .order-button {
     background: #00d1ff;
@@ -76,5 +106,31 @@
   
   .order-button:hover {
     background: #007d99;
+  }
+  .div-button {
+    display: flex; /* Alinha os elementos em coluna */
+    flex-direction: column; /* Alinha os itens de cima para baixo */
+    gap: 10px; /* Adiciona um espaçamento entre os botões */
+    width: 100%; /* Garante que ocupe toda a largura do container */
+    align-items: center; /* Alinha os botões ao centro */
+    margin-top: 100px;
+  }
+  
+  .btn-voltar, .btn-enviar {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: #f80909; /* Cor de fundo para os botões */
+    color: white; /* Cor do texto */
+    border-radius: 5px;
+  }
+  
+  .btn-enviar {
+    background-color: #4CAF50; /* Cor diferente para o botão de envio */
+  }
+  
+  .btn-voltar:hover, .btn-enviar:hover {
+    opacity: 0.8; /* Efeito de hover */
   }
   
