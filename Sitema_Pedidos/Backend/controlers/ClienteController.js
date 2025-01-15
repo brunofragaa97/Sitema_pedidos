@@ -1,4 +1,3 @@
-const Cliente = require('../models/Cliente');
 const ClienteService = require('../services/ClienteService');
 
 
