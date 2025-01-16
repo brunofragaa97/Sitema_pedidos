@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/Cardapio.css";
 
-const Cardapio = () => {
+const Pedido = () => {
   const [pedido, setPedido] = useState({
     itens: [], // Lista de itens no pedido
     total: 0, // Total do pedido
@@ -134,4 +134,4 @@ const Cardapio = () => {
   );
 };
 
-export default Cardapio;
+export default Pedido;
