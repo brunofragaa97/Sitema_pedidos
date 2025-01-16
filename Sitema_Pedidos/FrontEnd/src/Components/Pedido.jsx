@@ -3,6 +3,7 @@ import "../../styles/Cardapio.css";
 
 const Pedido = () => {
   const [pedido, setPedido] = useState({
+    cliente: "Florizaudo",
     itens: [], // Lista de itens no pedido
     total: 0, // Total do pedido
   });
@@ -29,10 +30,14 @@ const Pedido = () => {
         itensAtualizados.push({ ...item, quantidade });
       }
       const total = itensAtualizados.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
-      return { itens: itensAtualizados, total };
+      return {
+        ...prev, // Inclua isso para manter os outros campos, como `cliente`
+        itens: itensAtualizados,
+        total,
+      };
     });
   };
-
+  
   const verificarPedido = () => {
     if (pedido.itens.length === 0) {
       setErro("Selecione ao menos um item para verificar o pedido!");
@@ -43,19 +48,18 @@ const Pedido = () => {
   };
 
   const enviarPedido = async () => {
-    
     console.log(pedido)
     try {
-      if (pedido.itens.length === 0) {
-        console.error("Nenhum item foi selecionado para envio.");
-        return;
-      }
       const response = await fetch("http://localhost:3000/api/pedidos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(pedido),
       });
+      const servidor = await response.json();
 
+      if(response.ok){
+        console.log(servidor.message)
+      }
      
     } catch (error) {
       console.error("Erro ao enviar pedido:", error);
