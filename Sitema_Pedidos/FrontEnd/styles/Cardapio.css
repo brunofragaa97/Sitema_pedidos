@@ -134,3 +134,26 @@
     opacity: 0.8; /* Efeito de hover */
   }
   
+  /* Botões no canto superior direito */
+.button-container {
+  position: absolute; /* Posiciona a div relativa ao container pai */
+  top: 10px; /* Distância do topo */
+  right: 10px; /* Distância da direita */
+  display: flex; /* Alinha os botões horizontalmente */
+  gap: 10px; /* Espaço entre os botões */
+}
+
+.button-container button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: #4CAF50; /* Cor do botão */
+  color: white; /* Cor do texto */
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.button-container button:hover {
+  background-color: #007d99; /* Cor ao passar o mouse */
+}
