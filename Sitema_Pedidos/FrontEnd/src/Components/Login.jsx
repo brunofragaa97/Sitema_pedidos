@@ -1,0 +1,66 @@
+import React, { useState } from "react";
+import "../../styles/Login.css";
+
+const Login = ({ closeModal }) => {
+  const [formData, setFormData] = useState({
+    telefone: "",
+    senha: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+  const validateForm = () => {
+    const newErrors = {};
+    Object.keys(formData).forEach((key) => {
+      if (!formData[key]) {
+        newErrors[key] = "Este campo é obrigatório.";
+      }
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const fazerLogin = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+        // Aqui você pode adicionar lógica para login
+        alert("Login realizado com sucesso!");
+        closeModal(); // Fecha o modal após o login
+      } else {
+        alert("Por favor, preencha todos os campos.");
+      }
+  }
+
+  return (
+    <div className="form-container-login">
+      <h1>ENTRE COM O EMAIL</h1>
+      <form onSubmit={fazerLogin} className="client-form-login">
+        {[
+          { label: "E-mail", name: "email", type: "email" },
+          { label: "Senha", name: "senha", type: "password" },
+        ].map((field) => (
+          <div key={field.name} className="form-group">
+            <label htmlFor={field.name}>{field.label}</label>
+            <input
+              type={field.type}
+              id={field.name}
+              name={field.name}
+              value={formData[field.name]}
+              onChange={handleChange}
+              className={errors[field.name] ? "input-error" : ""}
+            />
+            {errors[field.name] && <small>{errors[field.name]}</small>}
+          </div>
+        ))}
+        <button type="submit" className="submit-button-login">
+          ENTRAR
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import Modal from "./Modal";
+import ModalCadastro from "./ModalCadastro";
+import ModalLogin from "./ModalLogin";
 import "../../styles/Cardapio.css";
 import CadastroCliente from "./CadastroCliente";
 import Pedido from "./Pedido";
+import Login from "./Login";
 
 const Index = () => {
   const [activeModalContent, setActiveModalContent] = useState(null);
@@ -21,12 +23,13 @@ const Index = () => {
     <div className="background-container">
       <div className="button-container">
         <button onClick={() => openModal(1)}>CADASTRAR</button>
-        <button>ENTRAR</button>
-        <Modal isOpen={activeModalContent === 1} onClose={closeModal}>
-          
-            <CadastroCliente closeModal={closeModal}/>
-         
-        </Modal>
+        <ModalCadastro isOpen={activeModalContent === 1} onClose={closeModal}>
+          <CadastroCliente closeModal={closeModal} />
+        </ModalCadastro>
+        <button onClick={() => openModal(2)}>ENTRAR</button>
+        <ModalLogin isOpen={activeModalContent === 2} onClose={closeModal}>
+        <Login closeModal={closeModal} />
+        </ModalLogin>
       </div>
       <Pedido />
     </div>

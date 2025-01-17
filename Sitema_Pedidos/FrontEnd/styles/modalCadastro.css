@@ -1,4 +1,4 @@
-.modal-overlay {
+.modal-overlay-cadastro {
     position: fixed; /* Fixa o modal em toda a tela */
     top: 0;
     left:0;
@@ -12,7 +12,7 @@
     
   }
 
-.container-modal{
+.container-modal-cadastro{
     justify-items: center;
     background-color: grey;
     height: 88vh;
