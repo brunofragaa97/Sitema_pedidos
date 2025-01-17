@@ -24,7 +24,7 @@ const Index = () => {
         <button>ENTRAR</button>
         <Modal isOpen={activeModalContent === 1} onClose={closeModal}>
           
-            <CadastroCliente />
+            <CadastroCliente closeModal={closeModal}/>
          
         </Modal>
       </div>

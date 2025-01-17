@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../../styles/CadastroCliente.css";
+import Index from "./Index";
 
-const CadastroCliente = () => {
+const CadastroCliente = ({ closeModal }) => {
   const [formData, setFormData] = useState({
     nome: "",
     senha: "",
@@ -54,6 +55,7 @@ const CadastroCliente = () => {
         if (response.ok) {
           console.log(servidor.message , "Cliente cadastrado: ", servidor.cliente);
           alert("Cadastro realizado com sucesso!");
+          closeModal();
           setFormData({
             nome: "",
             senha: "",
