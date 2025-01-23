@@ -14,9 +14,9 @@
 
 .container-modal-cadastro{
     justify-items: center;
-    background-color: grey;
-    height: 88vh;
-    width: auto;
+    background-color: #1f1f1f;
+    height: 80vh;
+    width: 30vw;
     border: 3px solid #00bcd4;
     border-radius: 10px;
     overflow: hidden;

@@ -5,6 +5,8 @@ import "../../styles/Cardapio.css";
 import CadastroCliente from "./CadastroCliente";
 import Pedido from "./Pedido";
 import Login from "./Login";
+import  "../index.css"
+import  "../App.css"
 
 const Index = () => {
   const [activeModalContent, setActiveModalContent] = useState(null);

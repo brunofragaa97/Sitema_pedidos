@@ -15,10 +15,8 @@ body {
   .form-container {
     background-color: #1f1f1f;
     padding: 20px; /* Reduzi o padding */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 300px; /* Largura compacta */
-    height: auto; /* Ajusta altura para caber os campos */
+    width: 25vw; /* Largura compacta */
+    height: 70vh; /* Ajusta altura para caber os campos */
   }
   
   h1 {
@@ -30,6 +28,7 @@ body {
   }
   
   .client-form .form-group {
+    margin-top: 1rem;
     margin-bottom: 10px; /* Menor espaçamento entre os campos */
   }
   
@@ -65,6 +64,7 @@ body {
   }
   
   .submit-button {
+    margin-top: 30px;
     width: 100%;
     padding: 6px; /* Reduzi o padding */
     border: none;

@@ -11,7 +11,7 @@
   }
   
   .client-form-login label {
-    margin-top: 20px;
+    margin-top: 50px;
     display: block;
     margin-bottom: 5px;
     color: #b0bec5;
@@ -44,7 +44,7 @@
 
 
 .submit-button-login {
-    margin-top: 30px;
+    margin-top: 80px;
     width: 100%;
     padding: 6px; /* Reduzi o padding */
     border: none;
