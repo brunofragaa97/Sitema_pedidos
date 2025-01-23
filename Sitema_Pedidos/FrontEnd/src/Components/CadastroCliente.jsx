@@ -3,6 +3,7 @@ import "../../styles/CadastroCliente.css";
 import Index from "./Index";
 
 const CadastroCliente = ({ closeModal }) => {
+  const currentDateTime = new Date().toLocaleString(); // Ex.: "22/01/2025 14:30:45"
   const [formData, setFormData] = useState({
     nome: "",
     senha: "",
@@ -33,6 +34,7 @@ const CadastroCliente = ({ closeModal }) => {
 
   const enviarCadastro = async (e) => {
     e.preventDefault();
+
     if (validateForm()) {
       try {
         const response = await fetch(
@@ -54,6 +56,7 @@ const CadastroCliente = ({ closeModal }) => {
         const servidor = await response.json();
         if (response.ok) {
           console.log(servidor.message , "Cliente cadastrado: ", servidor.cliente);
+          console.log ("Horario da requisicao: ", currentDateTime)
           alert("Cadastro realizado com sucesso!");
           closeModal();
           setFormData({
