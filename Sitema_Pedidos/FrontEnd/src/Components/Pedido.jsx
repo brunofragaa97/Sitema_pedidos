@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import "../../styles/Cardapio.css";
 
 const Pedido = () => {
+  const currentDate = new Date().toLocaleString();
   const [pedido, setPedido] = useState({
     cliente: "Florizaudo",
     itens: [], // Lista de itens no pedido
     total: 0, // Total do pedido
+    horarioPedido: ""
   });
   const [erro, setErro] = useState(""); // Estado para mensagem de erro
   const [mostrarResumo, setMostrarResumo] = useState(false); // Alterna para exibir o resumo do pedido
@@ -96,17 +98,26 @@ const Pedido = () => {
   };
 
   const enviarPedido = async () => {
-    console.log(pedido);
+
+    const currentDate = new Date().toLocaleString();
+    setPedido((prev) => ({
+      ...prev,
+      horarioPedido: currentDate
+    }))
     try {
       const response = await fetch("http://localhost:3000/api/pedidos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(pedido),
+        body: JSON.stringify({
+          ...pedido,
+          horarioPedido: currentDate
+      }),
       });
       const servidor = await response.json();
-
+      
       if (response.ok) {
         console.log(servidor.message);
+        
       }
     } catch (error) {
       console.error("Erro ao enviar pedido:", error);

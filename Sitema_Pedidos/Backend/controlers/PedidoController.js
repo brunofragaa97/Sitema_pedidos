@@ -2,13 +2,14 @@ const PedidoService = require("../services/PedidoService");
 
 class PedidoController {
     static async fazerPedido(req, res) {
-        const { cliente, itens, total } = req.body;
+        const { cliente, itens, total, horarioPedido } = req.body;
 
         try {
             const pedidoRealizado = await PedidoService.fazerPedido({
                 cliente,
                 itens,
-                total
+                total,
+                horarioPedido
             });
 
             res.status(201).json({

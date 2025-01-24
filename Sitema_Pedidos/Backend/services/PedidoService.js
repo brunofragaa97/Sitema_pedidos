@@ -6,7 +6,8 @@ class PedidoService {
         const novoPedido = new Pedido (
             dadosDoPedido.cliente,
             dadosDoPedido.itens,
-            dadosDoPedido.total
+            dadosDoPedido.total,
+            dadosDoPedido.horarioPedido
         )
         return novoPedido;
     }
