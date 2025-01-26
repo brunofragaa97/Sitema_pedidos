@@ -16,6 +16,7 @@ class LoginController{
             })
             console.log("Usuario Logado: " , email )
         }else{
+            console.log ("Tentativa de login nao autorizada: ", email)
             res.status(401).json({
                 message: "Usuario ou senha invalido"
             })

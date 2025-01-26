@@ -5,7 +5,7 @@ const path = require('path');
 // Caminho para o arquivo Excel
 const excelFilePath = path.join(__dirname, '../clientes.xlsx');
 
-class ExcelClienteLoginService {
+class ExcelClienteLoginSerivce {
 
 // Método para buscar email e senha na planilha
 static buscarEmailESenha() {
@@ -59,4 +59,4 @@ static buscarEmailESenha() {
     }
   }
 }
-module.exports = ExcelClienteLoginService;
+module.exports = ExcelClienteLoginSerivce;

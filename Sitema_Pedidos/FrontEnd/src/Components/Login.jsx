@@ -3,7 +3,7 @@ import "../../styles/Login.css";
 
 const Login = ({ closeModal }) => {
   const [formData, setFormData] = useState({
-    telefone: "",
+    email: "",
     senha: "",
   });
   const [errors, setErrors] = useState({});
@@ -23,16 +23,35 @@ const Login = ({ closeModal }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const fazerLogin = (e) => {
+  const fazerLogin = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-        // Aqui você pode adicionar lógica para login
-        alert("Login realizado com sucesso!");
-        closeModal(); // Fecha o modal após o login
-      } else {
-        alert("Por favor, preencha todos os campos.");
-      }
+    if(validateForm()){
+      try{
+        const response = await fetch(
+          "http://localhost:3000/api/loginRoute",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: formData.email,
+              senha: formData.senha
+            }),
+          }
+        );
+        const servidor = await response.json();
+        if(response.ok) {
+          console.log(servidor.message, ("Cliente Logado"));
+        }
+        else{
+          console.log ("erro ao logar")
+          console.log (servidor.message)
+        }
+    }catch(error){
+      console.log("servidor indisponivel")
+    }
+    
   }
+}
 
   return (
     <div className="form-container-login">
