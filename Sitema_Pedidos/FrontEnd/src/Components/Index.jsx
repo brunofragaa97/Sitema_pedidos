@@ -5,11 +5,20 @@ import "../../styles/Cardapio.css";
 import CadastroCliente from "./CadastroCliente";
 import Pedido from "./Pedido";
 import Login from "./Login";
-import  "../index.css"
-import  "../App.css"
+import "../index.css";
+import "../App.css";
 
 const Index = () => {
   const [activeModalContent, setActiveModalContent] = useState(null);
+  const [isLoged, setIsLoged] = useState(false);
+
+  const onLogin = () => {
+    setIsLoged(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoged(false);
+  };
 
   // Função para abrir o modal
   const openModal = (index) => {
@@ -24,14 +33,20 @@ const Index = () => {
   return (
     <div className="background-container">
       <div className="button-container">
-        <button onClick={() => openModal(1)}>CADASTRAR</button>
-        <ModalCadastro isOpen={activeModalContent === 1} onClose={closeModal}>
-          <CadastroCliente closeModal={closeModal} />
-        </ModalCadastro>
-        <button onClick={() => openModal(2)}>ENTRAR</button>
-        <ModalLogin isOpen={activeModalContent === 2} onClose={closeModal}>
-        <Login closeModal={closeModal} />
-        </ModalLogin>
+        {!isLoged ? (
+        <>
+          <button onClick={() => openModal(1)}>CADASTRAR</button>
+          <ModalCadastro isOpen={activeModalContent === 1} onClose={closeModal}>
+            <CadastroCliente closeModal={closeModal} />
+          </ModalCadastro>
+          <button onClick={() => openModal(2)}>ENTRAR</button>
+          <ModalLogin isOpen={activeModalContent === 2} onClose={closeModal}>
+            <Login closeModal={closeModal} onLogin={onLogin} />
+          </ModalLogin>
+        </>
+        ) : (
+          <button onClick={handleLogout}>SAIR</button>
+        )}
       </div>
       <Pedido />
     </div>

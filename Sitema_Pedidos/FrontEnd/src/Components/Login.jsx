@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/Login.css";
 
-const Login = ({ closeModal }) => {
+const Login = ({ closeModal, onLogin }) => {
   const [formData, setFormData] = useState({
     email: "",
     senha: "",
@@ -41,6 +41,8 @@ const Login = ({ closeModal }) => {
         const servidor = await response.json();
         if(response.ok) {
           console.log(servidor.message, ("Cliente Logado"));
+          closeModal();
+          onLogin();
         }
         else{
           console.log ("erro ao logar")
