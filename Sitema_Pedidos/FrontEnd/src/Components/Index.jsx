@@ -10,14 +10,17 @@ import "../App.css";
 
 const Index = () => {
   const [activeModalContent, setActiveModalContent] = useState(null);
-  const [isLoged, setIsLoged] = useState(false);
+  const [isLoged, setIsLoged] = useState(localStorage.getItem("estadoDeLogin"));
+  
 
   const onLogin = () => {
     setIsLoged(true);
+    localStorage.setItem("estadoDeLogin", true)
   };
 
   const handleLogout = () => {
     setIsLoged(false);
+    localStorage.removeItem("estadoDeLogin", true)
   };
 
   // Função para abrir o modal

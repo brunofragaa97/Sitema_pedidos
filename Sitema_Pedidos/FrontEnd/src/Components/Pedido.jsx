@@ -93,6 +93,10 @@ const Pedido = () => {
       setErro("Selecione ao menos um item para verificar o pedido!");
       return;
     }
+    if(localStorage.getItem("estadoDeLogin") !== "true"){
+      setErro("Antes de enviar o pedido, porfavor, entre com sua conta")
+      return;
+    }
     setErro("");
     setMostrarResumo(true);
   };
