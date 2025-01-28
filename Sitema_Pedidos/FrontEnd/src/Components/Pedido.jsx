@@ -4,7 +4,7 @@ import "../../styles/Cardapio.css";
 const Pedido = () => {
   const currentDate = new Date().toLocaleString();
   const [pedido, setPedido] = useState({
-    cliente: "Florizaudo",
+    cliente: "",
     itens: [], // Lista de itens no pedido
     total: 0, // Total do pedido
     horarioPedido: ""
@@ -81,7 +81,7 @@ const Pedido = () => {
         0
       );
       return {
-        ...prev, // Inclua isso para manter os outros campos, como `cliente`
+        ...prev, 
         itens: itensAtualizados,
         total,
       };
