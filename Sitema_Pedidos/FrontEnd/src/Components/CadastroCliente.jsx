@@ -38,7 +38,7 @@ const CadastroCliente = ({ closeModal }) => {
     if (validateForm()) {
       try {
         const response = await fetch(
-          "http://localhost:3000/api/cadastroClienteRoute",
+          "http:///192.168.0.197:8080/clientes",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

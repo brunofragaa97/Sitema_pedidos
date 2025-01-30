@@ -1,10 +1,10 @@
-package com.api_web_services;
+package com.sistema_pedidos_api.api_sistema_pedidos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApiWebServicesApplicationTests {
+class ApiSistemaPedidosApplicationTests {
 
 	@Test
 	void contextLoads() {

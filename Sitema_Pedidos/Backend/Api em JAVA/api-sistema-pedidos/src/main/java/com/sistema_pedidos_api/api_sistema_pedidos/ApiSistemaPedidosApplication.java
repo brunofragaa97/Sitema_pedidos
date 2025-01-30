@@ -1,13 +1,13 @@
-package com.api_web_services;
+package com.sistema_pedidos_api.api_sistema_pedidos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiWebServicesApplication {
+public class ApiSistemaPedidosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ApiWebServicesApplication.class, args);
+		SpringApplication.run(ApiSistemaPedidosApplication.class, args);
 	}
 
 }
