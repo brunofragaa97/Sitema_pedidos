@@ -8,6 +8,7 @@ public class ApiSistemaPedidosApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiSistemaPedidosApplication.class, args);
+		System.out.println("Olá Devers");
 	}
 
 }
