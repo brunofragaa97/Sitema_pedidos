@@ -18,7 +18,7 @@ public class Cliente {
     private String telefone;
 
 
-    public Cliente(String nome, String senha, String cpf, String endereco, String cep, String email, String telefone) {
+    public Cliente(Long id, String nome, String cpf, String endereco, String cep, String email, String telefone) {
         this.nome = nome;
         this.senha = senha;
         this.cpf = cpf;
@@ -96,6 +96,8 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
+
+                "ID= " + id + '/' +
                 "nome= " + nome + '\'' +
                 ", email= " + email + '\'' +
                 ", cpf=" + cpf + "/" +

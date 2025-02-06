@@ -5,6 +5,7 @@ import com.sistema_pedidos_api.api_sistema_pedidos.Models.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity; // Importação do ResponseEntity
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 //aqui definimos que a classe é um controlador REST
 @RestController
@@ -29,4 +30,9 @@ public class ClienteController {
         System.out.println("Cliente Cadastrado: >>" + cliente + " <<");
         return ResponseEntity.ok().body("{\"status\": \"success\"}");
     }
+    @GetMapping
+    public List<Cliente> buscarClientes(){
+        return clienteService.buscarClientes();
+    }
+
 }
